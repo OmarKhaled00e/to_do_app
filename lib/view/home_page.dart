@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/widgets/todo_item.dart';
+import 'package:to_do_app/widgets/list_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Center(child: Text('To Do')),
       ),
-      body: TodoItem(value: true),
+      body: ListItem(),
     );
   }
 }
