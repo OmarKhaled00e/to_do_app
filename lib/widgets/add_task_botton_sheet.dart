@@ -9,30 +9,25 @@ class AddTaskBottonSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.green[300],
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
+    return BlocProvider(
+      create: (context) => TodoCubit(),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.green[300],
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
           child: BlocConsumer<TodoCubit, TodoState>(
             listener: (context, state) {
               if (state is TodoSuccess) {
                 Navigator.pop(context);
               }
-              if (state is TodoFailure) {
-                print('failied ${state.errMessage}');
-              }
             },
             builder: (context, state) {
-              return ModalProgressHUD(
-                inAsyncCall: state is TodoLoading ? true : false,
-                child: AddTaskFromBotton(),
-              );
+              return SingleChildScrollView(child: AddTaskFromBotton());
             },
           ),
         ),

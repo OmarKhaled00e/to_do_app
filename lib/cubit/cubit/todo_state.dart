@@ -7,9 +7,7 @@ final class TodoInitial extends TodoState {}
 
 final class TodoLoading extends TodoState {}
 
-final class TodoSuccess extends TodoState {}
-
-final class TodoFailure extends TodoState {
-  final String errMessage;
-  TodoFailure(this.errMessage);
+final class TodoSuccess extends TodoState {
+  final List<TodoModel> task;
+  TodoSuccess(this.task);
 }

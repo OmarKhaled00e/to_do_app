@@ -8,15 +8,12 @@ part 'todo_state.dart';
 
 class TodoCubit extends Cubit<TodoState> {
   TodoCubit() : super(TodoInitial());
-
-  addTodo(TodoModel todo) async {
+  List<TodoModel>? task;
+  addTodo(TodoModel task) async {
     emit(TodoLoading());
-    try {
-      var notesBox = Hive.box<TodoModel>(kTodoBox);
-      await notesBox.add(todo);
-      emit(TodoSuccess());
-    } catch (e) {
-      emit(TodoFailure(e.toString()));
-    }
+
+    var notesBox = Hive.box<TodoModel>(kTodoBox);
+    List<TodoModel> task = notesBox.values.toList();
+    emit(TodoSuccess(task));
   }
 }
