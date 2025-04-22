@@ -25,9 +25,16 @@ class _ListItemState extends State<ListItem> {
                   tasks: task,
                   onChanged: (value) {
                     setState(() {
-                     context.read<TodoCubit>().toggleTask(index, value!);
+                    context.read<TodoCubit>().toggleTask(index, value!);
                     });
+
                   },
+                    onDelete: () {
+    context.read<TodoCubit>().deleteTask(index);
+      ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text('Delete Task Successfully')));
+  },
                 );
               },
             ),

@@ -27,6 +27,13 @@ class TodoCubit extends Cubit<TodoState> {
     await task.save();
 
     emit(TodoSuccess(notesBox.values.toList()));
+
   }
+
+}
+void deleteTask(int index) async {
+  var notesBox = Hive.box<TodoModel>(kTodoBox);
+  await notesBox.deleteAt(index);
+  emit(TodoSuccess(notesBox.values.toList()));
 }
 }

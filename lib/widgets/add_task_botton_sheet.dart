@@ -21,6 +21,9 @@ class AddTaskBottonSheet extends StatelessWidget {
           listener: (context, state) {
             if (state is TodoSuccess) {
               Navigator.pop(context);
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text('Add Task Successfully')));
             }
           },
           builder: (context, state) {
