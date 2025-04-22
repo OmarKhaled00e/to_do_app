@@ -38,7 +38,7 @@ class _AddTaskFromBottonState extends State<AddTaskFromBotton> {
                       onTap: () {
                         if (fromKey.currentState!.validate()) {
                           fromKey.currentState!.save();
-                          var todo = TodoModel(task: task!, isDone: isDone!);
+                          var todo = TodoModel(task: task! , isDone: false);
                           BlocProvider.of<TodoCubit>(context).addTodo(todo);
                         } else {
                           autovalidateMode = AutovalidateMode.always;

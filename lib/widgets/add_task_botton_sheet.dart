@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:to_do_app/cubit/cubit/todo_cubit.dart';
 import 'package:to_do_app/widgets/add_task_from_botton.dart';
 
@@ -9,27 +8,24 @@ class AddTaskBottonSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TodoCubit(),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.green[300],
-          borderRadius: BorderRadius.circular(20),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.green[300],
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        child: Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-          ),
-          child: BlocConsumer<TodoCubit, TodoState>(
-            listener: (context, state) {
-              if (state is TodoSuccess) {
-                Navigator.pop(context);
-              }
-            },
-            builder: (context, state) {
-              return SingleChildScrollView(child: AddTaskFromBotton());
-            },
-          ),
+        child: BlocConsumer<TodoCubit, TodoState>(
+          listener: (context, state) {
+            if (state is TodoSuccess) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return SingleChildScrollView(child: AddTaskFromBotton());
+          },
         ),
       ),
     );

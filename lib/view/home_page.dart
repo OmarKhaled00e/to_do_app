@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/widgets/add_task_botton_sheet.dart';
-
-import 'package:to_do_app/widgets/list_item.dart';
+import 'package:to_do_app/widgets/to_do_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,7 +27,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Center(child: Text('To Do')),
       ),
-      body: ListItem(),
+      body: ToDoBody(),
     );
   }
 }
