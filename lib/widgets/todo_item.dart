@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/model/todo_model_item.dart';
+import 'package:to_do_app/model/todo_model.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem({super.key, this.onChanged, required this.tasks});
 
   final void Function(bool?)? onChanged;
-  final TodoModelItem tasks;
+  final TodoModel tasks;
   @override
   Widget build(BuildContext context) {
     return Padding(

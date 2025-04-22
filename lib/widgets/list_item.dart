@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/model/todo_model_item.dart';
+import 'package:to_do_app/model/todo_model.dart';
 import 'package:to_do_app/widgets/todo_item.dart';
 
 class ListItem extends StatefulWidget {
@@ -10,10 +10,10 @@ class ListItem extends StatefulWidget {
 }
 
 class _ListItemState extends State<ListItem> {
-  List<TodoModelItem> tasks = [
-    TodoModelItem(task: 'go to the gym', isDone: false),
-    TodoModelItem(task: 'go to the gym', isDone: false),
-    TodoModelItem(task: 'go to the gym', isDone: false),
+  List<TodoModel> tasks = [
+    TodoModel(task: 'go to the gym', isDone: false),
+    TodoModel(task: 'go to the gym', isDone: false),
+    TodoModel(task: 'go to the gym', isDone: false),
   ];
   void cheackBoxChanged(bool? value, int index) {
     setState(() {
@@ -27,7 +27,7 @@ class _ListItemState extends State<ListItem> {
       itemCount: tasks.length,
       itemBuilder: (context, index) {
         return TodoItem(
-          tasks: TodoModelItem(
+          tasks: TodoModel(
             task: tasks[index].task,
             isDone: tasks[index].isDone,
           ),
