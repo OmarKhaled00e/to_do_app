@@ -9,7 +9,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: TextField(
         decoration: InputDecoration(
-          hintText: 'Enter your task',
+          hintText: 'Add a new task',
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
           ),

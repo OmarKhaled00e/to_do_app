@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 55,
+        decoration: BoxDecoration(
+          color: Colors.green[800],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(child: Text('Save')),
+      ),
+    );
+  }
+}

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/model/todo_model_item.dart';
 
 class TodoItem extends StatelessWidget {
-  const TodoItem({super.key, required this.value, this.onChanged});
-  final bool value;
+  const TodoItem({super.key,  this.onChanged, required this.tasks});
+
   final void Function(bool?)? onChanged;
+  final TodoModelItem tasks;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,13 +18,13 @@ class TodoItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Checkbox(value: value, onChanged: onChanged),
+            Checkbox(value: tasks.isDone, onChanged: onChanged),
             SizedBox(width: 4),
             Text(
-              'code with flutter',
+              tasks.name,
               style: TextStyle(
                 decoration:
-                    value ? TextDecoration.lineThrough : TextDecoration.none,
+                    tasks.isDone ? TextDecoration.lineThrough : TextDecoration.none,
               ),
             ),
           ],
