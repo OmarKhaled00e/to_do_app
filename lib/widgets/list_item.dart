@@ -11,9 +11,9 @@ class ListItem extends StatefulWidget {
 
 class _ListItemState extends State<ListItem> {
   List<TodoModelItem> tasks = [
-    TodoModelItem(name: 'go to the gym', isDone: false),
-    TodoModelItem(name: 'go to the gym', isDone: false),
-    TodoModelItem(name: 'go to the gym', isDone: false),
+    TodoModelItem(task: 'go to the gym', isDone: false),
+    TodoModelItem(task: 'go to the gym', isDone: false),
+    TodoModelItem(task: 'go to the gym', isDone: false),
   ];
   void cheackBoxChanged(bool? value, int index) {
     setState(() {
@@ -28,7 +28,7 @@ class _ListItemState extends State<ListItem> {
       itemBuilder: (context, index) {
         return TodoItem(
           tasks: TodoModelItem(
-            name: tasks[index].name,
+            task: tasks[index].task,
             isDone: tasks[index].isDone,
           ),
           onChanged: (value) {

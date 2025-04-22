@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/widgets/custom_button.dart';
-import 'package:to_do_app/widgets/custom_text_field.dart';
+import 'package:to_do_app/widgets/add_task_from_botton.dart';
 
 class AddTaskBottonSheet extends StatelessWidget {
   const AddTaskBottonSheet({super.key});
@@ -16,17 +15,9 @@ class AddTaskBottonSheet extends StatelessWidget {
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 16),
-              CustomTextField(),
-              SizedBox(height: 16),
-              CustomButton(),
-            ],
-          ),
-        ),
+        child: SingleChildScrollView(child: AddTaskFromBotton()),
       ),
     );
   }
 }
+

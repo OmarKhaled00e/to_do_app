@@ -1,6 +1,6 @@
 class TodoModelItem {
-  final String name;
+  final String task;
   bool isDone;
 
-  TodoModelItem({required this.name, required this.isDone});
+  TodoModelItem({required this.task, required this.isDone});
 }

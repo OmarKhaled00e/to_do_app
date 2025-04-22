@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/model/todo_model_item.dart';
 
 class TodoItem extends StatelessWidget {
-  const TodoItem({super.key,  this.onChanged, required this.tasks});
+  const TodoItem({super.key, this.onChanged, required this.tasks});
 
   final void Function(bool?)? onChanged;
   final TodoModelItem tasks;
@@ -18,13 +18,19 @@ class TodoItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Checkbox(value: tasks.isDone, onChanged: onChanged),
+            Checkbox(
+              checkColor: Colors.black,
+              value: tasks.isDone,
+              onChanged: onChanged,
+            ),
             SizedBox(width: 4),
             Text(
-              tasks.name,
+              tasks.task,
               style: TextStyle(
                 decoration:
-                    tasks.isDone ? TextDecoration.lineThrough : TextDecoration.none,
+                    tasks.isDone
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
               ),
             ),
           ],
